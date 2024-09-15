@@ -1,0 +1,275 @@
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - MyShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Reset */
+        body, ul {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #007bff; /* Blue background color */
+            color: white; /* White text color */
+            padding: 10px 0; /* Add padding */
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            color: white; /* Logo text color */
+            font-size: 2rem; /* Adjust the font size */
+        }
+
+        header .nav-links {
+            list-style: none; /* Remove default list styling */
+            display: flex; /* Display list items in a row */
+            margin: 0;
+            padding: 0;
+        }
+
+        header .nav-links li {
+            margin: 0 10px; /* Add spacing between links */
+        }
+
+        header .nav-links li a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        /* Main section styling */
+        .contact {
+            padding: 2rem;
+            background-color: #f4f4f4;
+        }
+
+        .contact-info, .contact-form, .map {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h2, .contact-form h2, .map h2 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-info i {
+            color: #007bff;
+            margin-right: 0.5rem;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info, .contact-form, .map {
+                margin-bottom: 1rem;
+            }
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #007bff; /* Blue background color */
+            color: white; /* White text color */
+            padding: 10px 0; /* Add padding */
+            text-align: center; /* Center align text */
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer .footer-links {
+            list-style: none; /* Remove default list styling */
+            display: flex; /* Display list items in a row */
+            justify-content: center; /* Center the items */
+            padding: 0;
+        }
+
+        footer .footer-links li {
+            margin: 0 10px; /* Add spacing between links */
+        }
+
+        footer .footer-links li a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        footer .social-media {
+            margin: 10px 0; /* Add margin above and below social media icons */
+        }
+
+        footer .social-media a {
+            color: white; /* Social media icon color */
+            margin: 0 10px; /* Add spacing between icons */
+            text-decoration: none; /* Remove underline */
+        }
+
+        footer .social-media i {
+            font-size: 1.5rem; /* Adjust the size of social media icons */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MyShop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="contact">
+        <div class="container">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p><i class="fas fa-map-marker-alt"></i> Address: 123 Main Street, Anytown, USA</p>
+                <p><i class="fas fa-phone"></i> Phone: (123) 456-7890</p>
+                <p><i class="fas fa-envelope"></i> Email: support@myshop.com</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <form action="contact.php" method="post">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" name="submit">Send Message</button>
+                </form>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map">
+                <h2>Our Location</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.144026245424!2d-122.41941808468139!3d37.77492927975942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808f6b2920e7%3A0x8b4f56c3b8e5b6d!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1634550125560!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fa b fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2024 MyShop. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

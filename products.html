@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - MyShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header, footer {
+            background-color: #007bff;
+            color: white;
+        }
+        header {
+            padding: 1rem;
+        }
+        footer {
+            padding: 1rem;
+            text-align: center;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .nav-links, .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .nav-links li, .footer-links li {
+            display: inline;
+        }
+        .nav-links a, .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .nav-links a:hover, .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .products {
+            padding: 2rem 0;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .product-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1rem;
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .product-card h3 {
+            margin: 1rem 0;
+            color: #007bff;
+        }
+        .product-card p {
+            color: #555;
+        }
+        .product-card .price {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 0.5rem 0;
+        }
+        .product-card .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .product-card .btn:hover {
+            background-color: #0056b3;
+        }
+        .social-media {
+            margin: 1rem 0;
+        }
+        .social-media a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+        }
+        .social-media i {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MyShop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="1st.jpg" alt="Product 1">
+                    <h3>Product 1</h3>
+                    <p>This is a brief description of Product 1. It's an amazing product with excellent features.</p>
+                    <div class="price">$19.99</div>
+                    <button class="btn" onclick="addToCart(1, 'Product 1', 'This is a brief description of Product 1. It\'s an amazing product with excellent features.', 19.99)">Add to Cart</button>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="2nd.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>This is a brief description of Product 2. It's durable and stylish, perfect for any occasion.</p>
+                    <div class="price">$29.99</div>
+                    <button class="btn" onclick="addToCart(2, 'Product 2', 'This is a brief description of Product 2. It\'s durable and stylish, perfect for any occasion.', 29.99)">Add to Cart</button>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="3rd.jpg" alt="Product 3">
+                    <h3>Product 3</h3>
+                    <p>This is a brief description of Product 3. High quality and affordable price.</p>
+                    <div class="price">$15.99</div>
+                    <button class="btn" onclick="addToCart(3, 'Product 3', 'This is a brief description of Product 3. High quality and affordable price.', 15.99)">Add to Cart</button>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="4th.jpg" alt="Product 4">
+                    <h3>Product 4</h3>
+                    <p>Product 4 is an essential item with great benefits and features.</p>
+                    <div class="price">$24.99</div>
+                    <button class="btn" onclick="addToCart(4, 'Product 4', 'Product 4 is an essential item with great benefits and features.', 24.99)">Add to Cart</button>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="5th.jpg" alt="Product 5">
+                    <h3>Product 5</h3>
+                    <p>High performance and excellent value for money.</p>
+                    <div class="price">$12.99</div>
+                    <button class="btn" onclick="addToCart(5, 'Product 5', 'High performance and excellent value for money.', 12.99)">Add to Cart</button>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="6th.jpg" alt="Product 6">
+                    <h3>Product 6</h3>
+                    <p>Stylish and functional product with great features.</p>
+                    <div class="price">$22.99</div>
+                    <button class="btn" onclick="addToCart(6, 'Product 6', 'Stylish and functional product with great features.', 22.99)">Add to Cart</button>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="7th.jpg" alt="Product 7">
+                    <h3>Product 7</h3>
+                    <p>Product 7 offers exceptional quality and durability.</p>
+                    <div class="price">$17.99</div>
+                    <button class="btn" onclick="addToCart(7, 'Product 7', 'Product 7 offers exceptional quality and durability.', 17.99)">Add to Cart</button>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="8th.jpg" alt="Product 8">
+                    <h3>Product 8</h3>
+                    <p>Elegant design and high functionality make this a top choice.</p>
+                    <div class="price">$27.99</div>
+                    <button class="btn" onclick="addToCart(8, 'Product 8', 'Elegant design and high functionality make this a top choice.', 27.99)">Add to Cart</button>
+                </div>
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="9th.jpg" alt="Product 9">
+                    <h3>Product 9</h3>
+                    <p>Affordable and reliable, perfect for everyday use.</p>
+                    <div class="price">$14.99</div>
+                    <button class="btn" onclick="addToCart(9, 'Product 9', 'Affordable and reliable, perfect for everyday use.', 14.99)">Add to Cart</button>
+                </div>
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <img src="10th.jpg" alt="Product 10">
+                    <h3>Product 10</h3>
+                    <p>Premium quality with a sleek design.</p>
+                    <div class="price">$39.99</div>
+                    <button class="btn" onclick="addToCart(10, 'Product 10', 'Premium quality with a sleek design.', 39.99)">Add to Cart</button>
+                </div>
+                <!-- Product 11 -->
+                <div class="product-card">
+                    <img src="11th.jpg" alt="Product 11">
+                    <h3>Product 11</h3>
+                    <p>This product combines style and utility in one.</p>
+                    <div class="price">$20.99</div>
+                    <button class="btn" onclick="addToCart(11, 'Product 11', 'This product combines style and utility in one.', 20.99)">Add to Cart</button>
+                </div>
+                <!-- Product 12 -->
+                <div class="product-card">
+                    <img src="12th.jpg" alt="Product 12">
+                    <h3>Product 12</h3>
+                    <p>Innovative features and modern design.</p>
+                    <div class="price">$32.99</div>
+                    <button class="btn" onclick="addToCart(12, 'Product 12', 'Innovative features and modern design.', 32.99)">Add to Cart</button>
+                </div>
+                <!-- Product 13 -->
+                <div class="product-card">
+                    <img src="13th.jpg" alt="Product 13">
+                    <h3>Product 13</h3>
+                    <p>Comfort and convenience at an affordable price.</p>
+                    <div class="price">$18.49</div>
+                    <button class="btn" onclick="addToCart(13, 'Product 13', 'Comfort and convenience at an affordable price.', 18.49)">Add to Cart</button>
+                </div>
+                <!-- Product 14 -->
+                <div class="product-card">
+                    <img src="14th.jpg" alt="Product 14">
+                    <h3>Product 14</h3>
+                    <p>Exceptional quality and elegant finish.</p>
+                    <div class="price">$25.49</div>
+                    <button class="btn" onclick="addToCart(14, 'Product 14', 'Exceptional quality and elegant finish.', 25.49)">Add to Cart</button>
+                </div>
+                <!-- Product 15 -->
+                <div class="product-card">
+                    <img src="15th.jpg" alt="Product 15">
+                    <h3>Product 15</h3>
+                    <p>Versatile and durable, a great addition to any collection.</p>
+                    <div class="price">$22.49</div>
+                    <button class="btn" onclick="addToCart(15, 'Product 15', 'Versatile and durable, a great addition to any collection.', 22.49)">Add to Cart</button>
+                </div>
+                <!-- Product 16 -->
+                <div class="product-card">
+                    <img src="16th.jpg" alt="Product 16">
+                    <h3>Product 16</h3>
+                    <p>Modern design with a touch of elegance.</p>
+                    <div class="price">$28.99</div>
+                    <button class="btn" onclick="addToCart(16, 'Product 16', 'Modern design with a touch of elegance.', 28.99)">Add to Cart</button>
+                </div>
+                <!-- Product 17 -->
+                <div class="product-card">
+                    <img src="17th.jpg" alt="Product 17">
+                    <h3>Product 17</h3>
+                    <p>Perfect blend of style and performance.</p>
+                    <div class="price">$31.99</div>
+                    <button class="btn" onclick="addToCart(17, 'Product 17', 'Perfect blend of style and performance.', 31.99)">Add to Cart</button>
+                </div>
+                <!-- Product 18 -->
+                <div class="product-card">
+                    <img src="18th.jpg" alt="Product 18">
+                    <h3>Product 18</h3>
+                    <p>High quality and excellent craftsmanship.</p>
+                    <div class="price">$26.99</div>
+                    <button class="btn" onclick="addToCart(18, 'Product 18', 'High quality and excellent craftsmanship.', 26.99)">Add to Cart</button>
+                </div>
+                <!-- Product 19 -->
+                <div class="product-card">
+                    <img src="19th.jpg" alt="Product 19">
+                    <h3>Product 19</h3>
+                    <p>Affordable luxury with a modern twist.</p>
+                    <div class="price">$21.99</div>
+                    <button class="btn" onclick="addToCart(19, 'Product 19', 'Affordable luxury with a modern twist.', 21.99)">Add to Cart</button>
+                </div>
+                <!-- Product 20 -->
+                <div class="product-card">
+                    <img src="20th.jpg" alt="Product 20">
+                    <h3>Product 20</h3>
+                    <p>Classic design with contemporary features.</p>
+                    <div class="price">$34.99</div>
+                    <button class="btn" onclick="addToCart(20, 'Product 20', 'Classic design with contemporary features.', 34.99)">Add to Cart</button>
+                </div>
+                <!-- Product 21 -->
+                <div class="product-card">
+                    <img src="21th.jpg" alt="Product 21">
+                    <h3>Product 21</h3>
+                    <p>Perfect for everyday use with a sleek design.</p>
+                    <div class="price">$23.99</div>
+                    <button class="btn" onclick="addToCart(21, 'Product 21', 'Perfect for everyday use with a sleek design.', 23.99)">Add to Cart</button>
+                </div>
+                <!-- Product 22 -->
+                <div class="product-card">
+                    <img src="22nd.jpg" alt="Product 22">
+                    <h3>Product 22</h3>
+                    <p>Innovative product with high performance.</p>
+                    <div class="price">$30.99</div>
+                    <button class="btn" onclick="addToCart(22, 'Product 22', 'Innovative product with high performance.', 30.99)">Add to Cart</button>
+                </div>
+                <!-- Product 23 -->
+                <div class="product-card">
+                    <img src="23rd.jpg" alt="Product 23">
+                    <h3>Product 23</h3>
+                    <p>Great value for money with top-notch features.</p>
+                    <div class="price">$18.99</div>
+                    <button class="btn" onclick="addToCart(23, 'Product 23', 'Great value for money with top-notch features.', 18.99)">Add to Cart</button>
+                </div>
+                <!-- Product 24 -->
+                <div class="product-card">
+                    <img src="24th.jpg" alt="Product 24">
+                    <h3>Product 24</h3>
+                    <p>Exceptional product with unique design.</p>
+                    <div class="price">$29.49</div>
+                    <button class="btn" onclick="addToCart(24, 'Product 24', 'Exceptional product with unique design.', 29.49)">Add to Cart</button>
+                </div>
+                <!-- Product 25 -->
+                <div class="product-card">
+                    <img src="25th.jpg" alt="Product 25">
+                    <h3>Product 25</h3>
+                    <p>Modern and stylish with high functionality.</p>
+                    <div class="price">$33.99</div>
+                    <button class="btn" onclick="addToCart(25, 'Product 25', 'Modern and stylish with high functionality.', 33.99)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2024 MyShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(id, name, description, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let productExists = cart.find(item => item.id === id);
+            
+            if (productExists) {
+                productExists.quantity += 1;
+            } else {
+                cart.push({ id, name, description, price, quantity: 1 });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} has been added to your cart.`);
+        }
+    </script>
+</body>
+</html>

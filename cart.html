@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - MyShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General Reset */
+        body, ul {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Header styling */
+        header {
+            background-color: #007bff; /* Blue background color */
+            color: white; /* White text color */
+            padding: 1rem;
+        }
+
+        header .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        header .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+
+        header .nav-links li {
+            display: inline;
+        }
+
+        header .nav-links a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+            font-size: 1rem;
+        }
+
+        header .nav-links a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        /* Main section styling */
+        .cart-container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .cart-table th, .cart-table td {
+            border: 1px solid #ddd;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .cart-table th {
+            background-color: #007bff; /* Blue background color */
+            color: white; /* White text color */
+        }
+
+        .cart-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .cart-table .remove-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .cart-table .remove-btn:hover {
+            background-color: #c82333;
+        }
+
+        .total {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            text-align: right;
+        }
+
+        .checkout-btn {
+            display: block;
+            width: 200px;
+            margin: 2rem auto;
+            padding: 0.75rem;
+            background-color: #007bff; /* Blue background color */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .checkout-btn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Footer styling */
+        footer {
+            background-color: #007bff; /* Blue background color */
+            color: white; /* White text color */
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        footer .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex; /* Align links horizontally */
+            justify-content: center; /* Center the items */
+            gap: 1rem;
+        }
+
+        footer .footer-links li {
+            display: inline;
+        }
+
+        footer .footer-links a {
+            color: white; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        footer .social-media {
+            margin: 1rem 0;
+        }
+
+        footer .social-media a {
+            color: white; /* Social media icon color */
+            margin: 0 10px;
+            text-decoration: none; /* Remove underline */
+        }
+
+        footer .social-media i {
+            font-size: 1.5rem; /* Adjust the size of social media icons */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MyShop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="cart-container">
+        <h2>Your Cart</h2>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <div class="total" id="cart-total">
+            <!-- Total will be dynamically inserted here -->
+        </div>
+        <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+    </section>
+
+    <footer>
+        <div class="container">
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p>&copy; 2024 MyShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for social media icons -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        // Function to load cart items from localStorage
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                cartItems.innerHTML += `
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.description}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${(item.price * item.quantity).toFixed(2)}</td>
+                        <td><button class="remove-btn" onclick="removeFromCart(${item.id})">Remove</button></td>
+                    </tr>
+                `;
+            });
+
+            cartTotal.innerHTML = `<strong>Total: $${total.toFixed(2)}</strong>`;
+        }
+
+        // Function to remove item from cart
+        function removeFromCart(id) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.id !== id);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            loadCart();
+        }
+
+        // Load cart items on page load
+        loadCart();
+    </script>
+</body>
+</html>

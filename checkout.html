@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MyShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-links li {
+            display: inline;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .checkout-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            padding: 2rem;
+            max-width: 800px;
+        }
+        h2 {
+            color: #007bff;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        .section input, .section select, .section textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        .section input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 4px;
+        }
+        .section input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .order-summary {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 1rem;
+            background-color: #f9f9f9;
+        }
+        .order-summary h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+        .order-summary ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .order-summary li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+        .order-summary .total {
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding-top: 1rem;
+        }
+        .continue-btn {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            text-align: center;
+            font-size: 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            margin-top: 1rem;
+        }
+        .continue-btn:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">MyShop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="account.html">Account</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="checkout-container">
+        <h2>Checkout</h2>
+
+        <div class="section">
+            <h3>Shipping Information</h3>
+            <form id="checkout-form" action="checkout.php" method="post">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="address">Shipping Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+                
+                <label for="city">City:</label>
+                <input type="text" id="city" name="city" required>
+                   
+                </select>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required>
+                <button type="submit" name="submit">Submit</button>
+                
+                <a href="payment.html" class="continue-btn">Continue to Payment</a>
+            </form>
+        </div>
+
+        <div class="section">
+            <h3>Order Summary</h3>
+            <div class="order-summary" id="order-summary">
+                <!-- Order summary will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 MyShop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to load cart items and calculate total
+        function loadOrderSummary() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const orderSummary = document.getElementById('order-summary');
+            let total = 0;
+
+            if (cart.length === 0) {
+                orderSummary.innerHTML = '<p>No items in the cart.</p>';
+                return;
+            }
+
+            orderSummary.innerHTML = '<ul>';
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                orderSummary.innerHTML += `
+                    <li>${item.name} - $${item.price.toFixed(2)} x ${item.quantity} = $${(item.price * item.quantity).toFixed(2)}</li>
+                `;
+            });
+            orderSummary.innerHTML += `<li class="total">Total: $${total.toFixed(2)}</li></ul>`;
+        }
+
+        // Load order summary on page load
+        loadOrderSummary();
+    </script>
+</body>
+</html>
